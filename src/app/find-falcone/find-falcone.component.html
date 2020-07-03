@@ -1,0 +1,35 @@
+<p class="lead pb-5 text-center">Select planets you want search in:</p>
+<div *ngIf="(planetsLoading$ | async) || (vehiclesLoading$ | async)" class="text-center mb-5">
+    <strong>
+        Loading stuff...
+    </strong>
+</div>
+<ng-template [ngIf] = "!(planetsLoading$ | async) && !(vehiclesLoading$ | async)">
+    <form autocomplete="on">
+        <div class="card-deck mb-3">
+            <app-destination 
+                *ngFor = "let destination of getKeys(destinations)"
+                class = "card align-self-start mb-4 shadow-sm"
+                [name] = "destination"
+                [planets] = "planets$"
+                [vehicles] = "vehicles$"
+                (onSelectPlanet) = "selectPlanet($event)"
+                (onSelectVehicle) = "selectVehicle($event)">
+            </app-destination>
+        </div>
+    </form>
+    <div class="card mb-3">
+        <div class="card-body text-center">
+            <div class="d-flex justify-content-between" *ngIf="falconeFoundToken$ | async as token">
+                <h4>Time Taken : {{falconeFoundTime$ | async}}</h4>
+                <button 
+                    class="btn btn-primary" 
+                    (click)="showStatus(token)" 
+                    [disabled]="!(isAllDestinationsSelected$ | async)"
+                    type="submit">
+                    Find Falcone
+                </button>
+            </div>
+        </div>
+    </div>   
+</ng-template>

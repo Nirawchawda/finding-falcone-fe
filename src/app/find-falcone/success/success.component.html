@@ -1,0 +1,21 @@
+<div *ngIf="planetFound$ | async as planet_name" class="border border-success rounded modal-dialog modal-confirm">
+    <div class="modal-content">
+        <div class="modal-header mt-4">
+            <div class="icon-box-success">
+                <strong class="material-icons">&#10004;</strong>
+            </div>				
+            <h4 class="modal-title w-100">Success!</h4>	
+        </div>
+        <div class="modal-body">
+            <p class="text-center">Congratulations on Finding Falcone. King Shan is mighty pleased.</p>
+            <p>
+                Planet Name : <strong>{{planet_name}}</strong>
+                <br>
+                Time Taken : <strong>{{falconeFoundTime$ | async}}</strong>
+            </p>
+        </div>
+        <div class="modal-footer">
+            <button (click)="goBack()" class="btn btn-success btn-block mx-4 mb-4">START AGAIN</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<div *ngIf="planetFound$ | async as planet_name" class="border border-danger rounded modal-dialog modal-confirm">
+    <div class="modal-content">
+        <div class="modal-header mt-4">
+            <div class="icon-box-failure">
+                <strong class="material-icons">&#10006;</strong>
+            </div>				
+            <h4 class="modal-title w-100">Sorry! Bad luck</h4>	
+        </div>
+        <div class="modal-body">
+            <p class="text-center">Oops, we didn't find Falcone on either of the planets you have chosen.</p>
+            <p>
+                Time Taken : <strong>{{falconeFoundTime$ | async}}</strong>
+            </p>
+        </div>
+        <div class="modal-footer">
+            <button (click)="goBack()" class="btn btn-danger btn-block mx-4 mb-4">START AGAIN</button>
+        </div>
+    </div>
+</div>

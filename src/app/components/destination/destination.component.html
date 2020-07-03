@@ -1,0 +1,48 @@
+<!-- <form [formGroup]="form">
+  <div [formGroupName]="name">
+    <select formControlName="planet">
+      <option *ngFor="let state of planets$ | async" [ngValue]="state">
+        {{ state.name }}
+      </option>
+    </select>
+  </div>
+</form> -->
+
+
+<div class="card-header text-center" >
+  <h4 class="my-0 font-weight-normal">{{name}}</h4>
+</div>
+<div class="card-body" *ngIf="planets$ | async as planets">
+  <select class="form-control" (change)="selectPlanet($event,name,planets)">
+      <option hidden disabled selected>Choose Planet</option>
+      <option 
+        *ngFor="let planet of planets;let i = index" 
+        [value]="i" 
+        [disabled]="planet.disabled"
+        [selected]="planet.selected == name">
+          {{planet.name}}
+          <!-- {{planet.selected ? '&#10004;' : ''}} -->
+      </option>
+  </select>
+</div>
+<ul *ngIf="showVehicles" class="list-group list-group-flush">
+  <li *ngFor="let vehicle of vehicles$ | async;let i = index" class="list-group-item">
+    <div class="form-check">
+      <input class = "form-check-input" 
+              type  = "radio" 
+              name  = "{{name+'-vehicle'}}" 
+              [id]  = "name+' '+vehicle.name"
+              [disabled] = "vehicle[name].disabled || (!vehicle[name].selected && !vehicle.total_no)"
+              [checked] = "vehicle[name].selected"
+              (change) = "selectVehicle(i,name,vehicle)">
+      <label class="form-check-label" for="{{vehicle.name}}">
+        {{ vehicle.name }} ({{vehicle.total_no}})
+        <!-- {{ name }} ({{vehicle[name] ? vehicle[name].selected : ''}}) -->
+        <!-- {{ vehicle.max_distance }} ({{vehicle[name] ? vehicle[name].disabled : ''}}) -->
+      </label>
+    </div>
+  </li>
+</ul>
+<!-- <div *ngIf="showVehicles" class="card-body">
+  <button class="btn btn-sm btn-primary" type="submit">Reset</button>
+</div>   -->

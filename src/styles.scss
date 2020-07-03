@@ -1,0 +1,50 @@
+.content{
+  margin-bottom: 2rem;
+}
+.modal-confirm{
+  width: 20rem;
+  text-align: center;
+}
+.modal-confirm .icon-box-success {
+    color: #fff;
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: -30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    z-index: 9;
+    background:white;
+    border:1px solid #28a745;
+    padding: 5px;
+    font-size: 2rem;
+    text-align: center;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.modal-confirm .icon-box-failure {
+  color: #fff;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: -30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  z-index: 9;
+  background:white;
+  border:1px solid #dc3545;
+  padding: 5px;
+  font-size: 2rem;
+  text-align: center;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+$breakpoint-tablet: 986px;
+@media (max-width: $breakpoint-tablet){
+  .card{
+    flex: 30% !important;
+  }
+}
