@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { Planet } from '../models/Planet.model';
+import { Planet } from '../models/planet.model';
 
 @Injectable({
   providedIn: 'root'

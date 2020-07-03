@@ -1,4 +1,4 @@
-import { Planet } from 'src/app/models/Planet.model';
+import { Planet } from 'src/app/models/planet.model';
 import { Actions, PlanetsActionTypes } from '../actions';
 
 export interface PlanetState{

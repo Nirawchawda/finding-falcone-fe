@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { Planet } from 'src/app/models/Planet.model';
+import { Planet } from 'src/app/models/planet.model';
 import { Vehicle } from 'src/app/models/vehicle.model';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
